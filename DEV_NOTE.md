@@ -1,9 +1,9 @@
-# Developer Note — TechBridge Programs Experience
+# Developer Note — TechBridge Internship Tasks Experience
 
-For this task, I built a dedicated Programs experience as a natural extension of the Task 1 homepage, keeping the same navigation, buttons, colors, typography, and footer so both pages feel like one site. I presented the two programs — Data Analytics and Web Development — as individual sections with their descriptions and skills, and added a comparison area so visitors can quickly decide which path suits them.
+For this task, I presented the 8 internship tasks as a vertical timeline, with numbered nodes connected by a single line that flows from Task 1 (Day 1) down to Task 8 (Day 26). I chose this layout because a timeline communicates sequence and progression at a glance — visitors can immediately see the order of tasks and how the work advances over the 30 days.
 
-To communicate each program's focus, the Data Analytics section emphasizes working with data and extracting insights, while the Web Development section emphasizes designing and building websites and web applications. I also added a clear call to action that links to the official internship application form, so visitors always have a next step.
+Each task card shows the task number, title, day, a short description, a difficulty label (Beginner through Intermediate/Advanced), and a status badge (Completed, In Progress, or Upcoming) so interns always know what is available and what comes next. The difficulty labels visibly grow across the timeline to reinforce that the internship becomes progressively more challenging.
 
-During this task I strengthened my understanding of responsive design and CSS nesting. One challenge I faced was ensuring the two-column program layouts stacked correctly on mobile — I resolved it by reorganizing the media queries so the responsive rules apply after the base styles.
+Building this page strengthened my use of CSS positioning and pseudo-elements to create the connecting line. The main challenge was making the timeline responsive — the cards alternate sides on desktop but must stack into a single column on mobile — which I solved with media queries that reposition the line and cards cleanly at each breakpoint.
 
-Every visitor action is covered: navigation works between the homepage and the Programs page, the application button points to the official form, and the layout adapts across desktop, tablet, and mobile.
+All navigation, styling, colors, and the footer remain consistent with the Tasks 1 and 2 pages, and visitors can move freely between Home, Programs, Internship Tasks, and the internship details.
