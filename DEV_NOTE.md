@@ -1,9 +1,9 @@
-# Developer Note — TechBridge Internship Tasks Experience
+# Developer Note — TechBridge Interactive Internship Roadmap
 
-For this task, I presented the 8 internship tasks as a vertical timeline, with numbered nodes connected by a single line that flows from Task 1 (Day 1) down to Task 8 (Day 26). I chose this layout because a timeline communicates sequence and progression at a glance — visitors can immediately see the order of tasks and how the work advances over the 30 days.
+For this task, I added an Interactive Internship Roadmap page that presents both TechBridge internship tracks — Data Analytics and Web Development — using the same timeline design as the Internship Tasks page. Each track is stored as an object inside a `tracks` object, and every task is represented as an individual object holding its number, title, day, description, and difficulty level.
 
-Each task card shows the task number, title, day, a short description, a difficulty label (Beginner through Intermediate/Advanced), and a status badge (Completed, In Progress, or Upcoming) so interns always know what is available and what comes next. The difficulty labels visibly grow across the timeline to reinforce that the internship becomes progressively more challenging.
+I used JavaScript to handle track switching: a variable tracks the currently selected track, and a `renderTrack` function uses DOM manipulation to rebuild the timeline whenever the visitor clicks a track button. The track buttons are wired up with event listeners, and conditional logic inside `renderTrack` updates both the task list and the "Currently Viewing" label, so the page changes instantly without a refresh.
 
-Building this page strengthened my use of CSS positioning and pseudo-elements to create the connecting line. The main challenge was making the timeline responsive — the cards alternate sides on desktop but must stack into a single column on mobile — which I solved with media queries that reposition the line and cards cleanly at each breakpoint.
+The task information was stored in arrays of objects, which keeps the two tracks clearly organized and easy to extend. One challenge I encountered was making sure the difficulty badges kept their correct colors after the timeline was re-rendered — I solved it by mapping each difficulty label to a CSS class inside a helper function before building the task cards.
 
-All navigation, styling, colors, and the footer remain consistent with the Tasks 1 and 2 pages, and visitors can move freely between Home, Programs, Internship Tasks, and the internship details.
+The roadmap stays visually consistent with the rest of the TechBridge site, reuses the existing timeline and stat styles, and visitors can switch between tracks and navigate to Home, Programs, or Internship Tasks at any time.
