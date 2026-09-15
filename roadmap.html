@@ -12,6 +12,7 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="index.html" aria-label="TechBridge home">
@@ -31,9 +32,14 @@
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
         <a href="programs.html">Programs</a>
-        <a href="tasks.html">Tasks</a>
-        <a href="roadmap.html" class="active">Roadmap</a>
-        <a href="index.html#internship">Internship</a>
+        <div class="dropdown-wrap">
+          <a class="nav-has-dropdown" role="button" tabindex="0" aria-haspopup="true">Explore</a>
+          <div class="dropdown">
+            <a href="tasks.html">Tasks</a>
+            <a href="roadmap.html" class="active">Roadmap</a>
+            <a href="index.html#internship">Internship</a>
+          </div>
+        </div>
         <a href="index.html#community">Community</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -44,11 +50,12 @@
     </div>
   </header>
 
+  <!-- Main content -->
   <main>
 
     <section class="pg-hero">
       <div class="container pg-hero-inner reveal">
-        <p class="label">INTERACTIVE INTERNSHIP ROADMAP</p>
+        <p class="label">INTERNSHIP ROADMAP</p>
         <h1>Choose Your Track, See Your Journey</h1>
         <p class="pg-hero-desc">TechBridge offers a 30-Day Practical Internship in two tracks. Pick a track to explore its complete 8-task journey — from Day 1 to Day 26.</p>
       </div>
@@ -83,6 +90,7 @@
           <p class="tasks-intro">Select a track below to see its full 30-day internship journey. The page updates instantly.</p>
         </div>
 
+        <!-- Track selection controls -->
         <div class="track-switch reveal">
           <button class="track-btn active" type="button" data-track="data-analytics">Data Analytics</button>
           <button class="track-btn" type="button" data-track="web-development">Web Development</button>
@@ -93,6 +101,7 @@
           <span class="track-current-name" id="track-name">Data Analytics</span>
         </div>
 
+        <!-- Rendering target for the selected track's tasks -->
         <div class="timeline reveal" id="timeline"></div>
 
         <div class="legend reveal">
@@ -120,6 +129,7 @@
 
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-top">
       <div class="footer-brand">
@@ -158,6 +168,7 @@
   </footer>
 
   <script>
+    // Track definitions — each key holds a label and array of task objects.
     const tracks = {
       'data-analytics': {
         name: 'Data Analytics',
@@ -187,11 +198,14 @@
       }
     };
 
+    // Currently selected track — defaults to Data Analytics.
     let currentTrack = 'data-analytics';
 
+    // DOM refs used on every render cycle.
     const timelineEl = document.getElementById('timeline');
     const trackNameEl = document.getElementById('track-name');
 
+    // Map difficulty label to its badge CSS class.
     function difficultyClass(level) {
       if (level === 'Beginner') { return 'difficulty-beginner'; }
       if (level === 'Beginner \u2192 Intermediate') { return 'difficulty-mid'; }
@@ -199,6 +213,7 @@
       return 'difficulty-intermediate';
     }
 
+    // Rebuild the timeline HTML for the selected track.
     function renderTrack(trackKey) {
       const track = tracks[trackKey];
 
@@ -230,6 +245,7 @@
       });
     }
 
+    // Attach click handlers to the track switch buttons.
     const trackButtons = document.querySelectorAll('.track-btn');
     trackButtons.forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -237,8 +253,10 @@
       });
     });
 
+    // Draw the default track on first load.
     renderTrack(currentTrack);
 
+    // Reveal-on-scroll: observe, then unobserve once revealed.
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
     }, { threshold: 0.15 });

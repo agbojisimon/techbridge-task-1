@@ -12,6 +12,7 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="index.html" aria-label="TechBridge home">
@@ -31,9 +32,14 @@
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
         <a href="programs.html">Programs</a>
-        <a href="tasks.html" class="active">Tasks</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="index.html#internship">Internship</a>
+        <div class="dropdown-wrap">
+          <a class="nav-has-dropdown" role="button" tabindex="0" aria-haspopup="true">Explore</a>
+          <div class="dropdown">
+            <a href="tasks.html" class="active">Tasks</a>
+            <a href="roadmap.html">Roadmap</a>
+            <a href="index.html#internship">Internship</a>
+          </div>
+        </div>
         <a href="index.html#community">Community</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -44,6 +50,7 @@
     </div>
   </header>
 
+  <!-- Main content -->
   <main>
 
     <section class="pg-hero">
@@ -83,6 +90,7 @@
           <p class="tasks-intro">Follow the path in order. Each task introduces something new — watch the difficulty grow as you go.</p>
         </div>
 
+        <!-- Internship journey timeline -->
         <div class="timeline reveal-child">
 
           <article class="timeline-item">
@@ -191,6 +199,7 @@
 
         </div>
 
+        <!-- Status & difficulty legend -->
         <div class="legend reveal">
           <span class="legend-item"><i class="legend-dot dot-completed"></i> Completed</span>
           <span class="legend-item"><i class="legend-dot dot-current"></i> In Progress</span>
@@ -220,6 +229,7 @@
 
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-top">
       <div class="footer-brand">
@@ -258,6 +268,7 @@
   </footer>
 
   <script>
+    // Reveal-on-scroll: observe, then unobserve once revealed.
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
     }, { threshold: 0.15 });
