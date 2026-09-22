@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TechBridge Intern Dashboard — track your progress through the 8 internship tasks and explore modern web technologies." />
+  <title>Intern Dashboard | TechBridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="TechBridge home">
+        <img class="brand-logo" src="images/techbridge-logo.png" alt="TechBridge logo" />
+        <span class="brand-text">
+          <strong>TechBridge</strong>
+          <small>by Baselink Services Limited</small>
+        </span>
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden />
+      <label for="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <div class="dropdown-wrap">
+          <a class="nav-has-dropdown" role="button" tabindex="0" aria-haspopup="true">Explore</a>
+          <div class="dropdown">
+            <a href="tasks.html">Tasks</a>
+            <a href="roadmap.html">Roadmap</a>
+            <a href="challenges.html">Challenges</a>
+            <a href="index.html#internship">Internship</a>
+          </div>
+        </div>
+        <a href="index.html#community">Community</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary btn-sm nav-cta" href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">
+        Apply Now
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Welcome -->
+    <section class="dash-welcome">
+      <div class="container">
+        <div class="welcome-card reveal">
+          <div class="welcome-avatar">A</div>
+          <div class="welcome-text">
+            <h1>Welcome back, Alex</h1>
+            <p class="welcome-role">Web Development Intern</p>
+            <p class="welcome-msg">Keep building! You are making steady progress through the TechBridge internship. Pick up where you left off and keep the momentum going.</p>
+          </div>
+          <span class="welcome-badge">Internship Status: In Progress</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="section dashboard">
+      <div class="container dashboard-grid">
+
+        <div class="dashboard-main">
+
+          <!-- Internship progress -->
+          <div class="dash-card reveal" id="progress">
+            <div class="dash-card-head">
+              <p class="label">OVERVIEW</p>
+              <h2>Internship Progress</h2>
+            </div>
+            <div class="dp-stats">
+              <div class="dp-stat">
+                <strong id="completed-count">5</strong>
+                <span>of 8 Tasks Completed</span>
+              </div>
+              <div class="dp-stat">
+                <strong id="remaining-count">3</strong>
+                <span>Tasks Remaining</span>
+              </div>
+              <div class="dp-stat">
+                <strong id="progress-percent">63%</strong>
+                <span>Overall Progress</span>
+              </div>
+            </div>
+            <div class="dp-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="63">
+              <div class="dp-bar" id="dp-bar"></div>
+            </div>
+          </div>
+
+          <!-- Task tracker -->
+          <div class="dash-card reveal" id="tasks">
+            <div class="dash-card-head dash-tasks-head">
+              <div>
+                <p class="label">TASK TRACKER</p>
+                <h2>Your Internship Tasks</h2>
+              </div>
+              <div class="ch-filter-btns" id="task-filter">
+                <button class="ch-filter-btn active" type="button" data-filter="all">All</button>
+                <button class="ch-filter-btn" type="button" data-filter="completed">Completed</button>
+                <button class="ch-filter-btn" type="button" data-filter="in-progress">In Progress</button>
+                <button class="ch-filter-btn" type="button" data-filter="not-started">Not Started</button>
+              </div>
+            </div>
+
+            <p class="dash-all-done" id="all-done" hidden>Congratulations! You have completed all 8 internship tasks.</p>
+
+            <!-- Task cards render here -->
+            <div class="task-track-grid" id="task-list"></div>
+          </div>
+
+        </div>
+
+        <aside class="dashboard-side">
+
+          <!-- Challenge Hub connection -->
+          <div class="dash-card dash-chhub reveal" id="challenges">
+            <p class="label">CONNECTED · TASK 5</p>
+            <h2>Challenge Hub</h2>
+            <p>Put your skills to the test with practical challenges across both internship tracks.</p>
+            <span class="chhub-count">8 Challenges Available</span>
+            <a class="btn btn-primary" href="challenges.html">Explore Challenges</a>
+          </div>
+
+          <!-- Technology explorer -->
+          <div class="dash-card dash-tech reveal" id="tech">
+            <p class="label">MODERN WEB TECHNOLOGIES</p>
+            <h2>Technology Explorer</h2>
+            <p class="tech-intro">Tap a technology below to see what it is and how it is used to build complete web platforms.</p>
+            <div class="tech-filter" id="tech-filter">
+              <button class="tech-btn active" type="button" data-tech="nextjs">Next.js</button>
+              <button class="tech-btn" type="button" data-tech="vuejs">Vue.js</button>
+              <button class="tech-btn" type="button" data-tech="angular">Angular</button>
+              <button class="tech-btn" type="button" data-tech="backend">Backend</button>
+            </div>
+            <div class="tech-info" id="tech-info"></div>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Task detail modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="images/techbridge-logo.png" alt="TechBridge logo" />
+          <span class="brand-text">
+            <strong>TechBridge</strong>
+            <small>by Baselink Services Limited</small>
+          </span>
+        </a>
+        <p class="footer-tagline">Bridging Learning to Real-World Experience</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <span class="footer-col-title">Explore</span>
+          <a href="index.html#about">About</a>
+          <a href="programs.html">Programs</a>
+          <a href="dashboard.html">Intern Dashboard</a>
+          <a href="tasks.html">Internship Tasks</a>
+          <a href="roadmap.html">Internship Roadmap</a>
+          <a href="challenges.html">Challenge Hub</a>
+          <a href="index.html#internship">Internship</a>
+          <a href="index.html#community">Community</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="https://forms.gle/8EbdSy5ttGfLZfjv5?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Apply Now</a>
+          <a href="https://chat.whatsapp.com/FqpBvYS4oaK32cXDxc8JIS?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">WhatsApp Community</a>
+          <a href="mailto:techbridgebaslink@gmail.com">Email Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2024 TechBridge by Baselink Services Limited</span>
+      <span>Bridging Learning to Real-World Experience</span>
+    </div>
+  </footer>
+
+  <script src="dashboard.js"></script>
+
+</body>
+</html>
